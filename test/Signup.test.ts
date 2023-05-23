@@ -24,3 +24,17 @@ test('Should to do signup', async () => {
   expect(output.name).toBe('John Doe')
   expect(output.token).toBe('123456')
 })
+
+test('Should not to do signup', async () => {
+  const userRepository = new UserRepositoryMemory()
+
+  const signup = new Signup(userRepository)
+  const inputSignup = {
+    name: 'John',
+    email: 'johndoe@gmail.com',
+    password: '123345678',
+    age: 30
+  }
+
+  expect(() => signup.execute(inputSignup)).rejects.toThrow(new Error('Invalid name'))
+})
