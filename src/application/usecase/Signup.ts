@@ -6,7 +6,7 @@ export default class Signup {
 
   async execute(input: Input): Promise<void> {
     const user = new User(input)
-    this.userRepository.save(input)
+    this.userRepository.save(user)
   }
 }
 
