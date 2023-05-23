@@ -5,8 +5,8 @@ export default class Signup {
   constructor(readonly userRepository: UserRepository) {}
 
   async execute(input: Input): Promise<void> {
-    const user = new User(input)
-    this.userRepository.save(user)
+    const user = new User(input.name, input.email, input.password, input.age)
+    await this.userRepository.save(user)
   }
 }
 
