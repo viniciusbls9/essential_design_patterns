@@ -12,3 +12,7 @@ test('Should to create a user', () => {
 test('Should not to do signup with invalid name', async () => {
   expect(() => new User('John', 'john.doe@gmail.com', '12345678', 30)).toThrow(new Error('Invalid name'))
 })
+
+test('Should not to do signup with invalid email', async () => {
+  expect(() => new User('John Doe', 'john.doe@gmail', '12345678', 30)).toThrow(new Error('Invalid email'))
+})
