@@ -13,6 +13,11 @@ export default class Signup {
 			throw new Error("Invalid email");
 		}
 
+    if (input.password.length < 8) {
+      throw new Error("Invalid password");
+      
+    }
+
     const user = new User(input.name, input.email, input.password, input.age)
     await this.userRepository.save(user)
   }
