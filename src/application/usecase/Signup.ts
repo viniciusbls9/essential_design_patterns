@@ -18,6 +18,11 @@ export default class Signup {
       
     }
 
+    if (input.age < 18) {
+      throw new Error("Invalid age");
+      
+    }
+
     const user = new User(input.name, input.email, input.password, input.age)
     await this.userRepository.save(user)
   }
