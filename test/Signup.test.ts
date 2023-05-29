@@ -25,7 +25,7 @@ test('Should to do signup', async () => {
   expect(output.token).toBe('123456')
 })
 
-test('Should not to do signup', async () => {
+test('Should not to do signup with invalid name', async () => {
   const userRepository = new UserRepositoryMemory()
 
   const signup = new Signup(userRepository)
