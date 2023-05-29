@@ -8,6 +8,11 @@ export default class Signup {
     if (input.name.split(' ').length < 2) {
       throw new Error('Invalid name')
     }
+
+    if(!String(input.email).toLowerCase().match(/^[\w-]+(\.[\w-]+)*@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/)) {
+			throw new Error("Invalid email");
+		}
+
     const user = new User(input.name, input.email, input.password, input.age)
     await this.userRepository.save(user)
   }
