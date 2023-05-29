@@ -38,3 +38,17 @@ test('Should not to do signup with invalid name', async () => {
 
   expect(() => signup.execute(inputSignup)).rejects.toThrow(new Error('Invalid name'))
 })
+
+test('Should not to do signup with invalid email', async () => {
+  const userRepository = new UserRepositoryMemory()
+
+  const signup = new Signup(userRepository)
+  const inputSignup = {
+    name: 'John Doe',
+    email: 'johndoe@gmail',
+    password: '123345678',
+    age: 30
+  }
+
+  expect(() => signup.execute(inputSignup)).rejects.toThrow(new Error('Invalid email'))
+})
