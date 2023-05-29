@@ -1,6 +1,6 @@
-import Login from "../src/application/usecase/Login"
-import Signup from "../src/application/usecase/Signup"
-import UserRepositoryMemory from "../src/infra/repository/memory/UserRepositoryMemory"
+import Login from "../../src/application/usecase/Login"
+import Signup from "../../src/application/usecase/Signup"
+import UserRepositoryMemory from "../../src/infra/repository/memory/UserRepositoryMemory"
 
 test('Should to do signup', async () => {
   const userRepository = new UserRepositoryMemory()
